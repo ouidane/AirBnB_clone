@@ -6,24 +6,10 @@ import models
 
 
 class BaseModel:
-    """Represents the BaseModel of the HBnB project.
-
-    Attributes:
-        id (str): A unique identifier generated using the uuid4() function.
-        created_at (datetime): The date & time when
-            the instance is created.
-        updated_at (datetime): The date & time when
-            the instance is last updated.
-
-    Methods:
-        __init__: Initializes a new instance of the BaseModel class.
-        __str__: Returns a string representation of the BaseModel instance.
-        save: Updates the 'updated_at' attribute and saves the instance.
-        to_dict: Returns a dictionary representation of the BaseModel instance.
-    """
+    """Represents the BaseModel."""
 
     def __init__(self, *args, **kwargs) -> None:
-        """Initialize a new instance of the BaseModel class.
+        """Initialize a new instance.
 
         Args:
             *args: Not Used.
@@ -45,7 +31,7 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self) -> str:
-        """Return a string representation of the BaseModel instance."""
+        """Return a string."""
         return "[{}] ({}) {}".format(
             self.__class__.__name__,
             self.id,
@@ -53,12 +39,12 @@ class BaseModel:
         )
 
     def save(self) -> None:
-        """Update the 'updated_at' attribute and save the instance."""
+        """Update 'updated_at'."""
         self.updated_at = datetime.today()
         models.storage.save()
 
     def to_dict(self) -> dict:
-        """Return a dictionary representation of the BaseModel instance."""
+        """Return a dictionary of the BaseModel."""
         rtn_dict = self.__dict__.copy()
         rtn_dict["created_at"] = self.created_at.isoformat()
         rtn_dict["updated_at"] = self.updated_at.isoformat()
