@@ -82,12 +82,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """Method to exit the HBNB console."""
-        return True
+        exit()
 
     def do_EOF(self, arg):
         """Handles EOF to exit program."""
         print("")
-        return True
+        exit()
 
     def do_create(self, arg):
         """Create a new instance"""
