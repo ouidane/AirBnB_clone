@@ -1,19 +1,21 @@
 #!/usr/bin/python3
-"""Defines the User Class."""
+"""User class module."""
+
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """Class representing a user in the HBnB application.
+    """Represents a user with personal information.
 
     Attributes:
-        email (str): The email address of the user.
-        password (str): The password associated with the user.
-        first_name (str): The first name of the user.
-        last_name (str): The last name of the user.
+        email (str): The user's email address.
+        password (str): The user's password.
+        first_name (str): The user's first name.
+        last_name (str): The user's last name.
     """
 
     email = ""
     password = ""
     first_name = ""
     last_name = ""
+
