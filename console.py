@@ -36,7 +36,7 @@ def str_parse(arg):
         return rtn_list
 
 class HBNBCommand(cmd.Cmd):
-    """Implementation of the HBnB command-line interface."""
+    """HBnB command-line interface."""
 
     prompt = "(hbnb) "
     __classes = {
@@ -48,10 +48,6 @@ class HBNBCommand(cmd.Cmd):
         "State",
         "User"
         }
-
-    def emptyline(self):
-        """Continue and do nothings."""
-        pass
 
     def default(self, arg):
         """Handle the unrecognized command.
@@ -81,14 +77,9 @@ class HBNBCommand(cmd.Cmd):
         print("** Unknown syntax: {}".format(arg))
         return False
 
-    def do_quit(self, arg):
-        """Quit command."""
-        return True
-
-    def do_EOF(self, arg):
-        """EOF signal."""
-        print("")
-        return True
+    def emptyline(self):
+        """Continue and do nothings."""
+        pass
 
     def do_create(self, arg):
         """Create a new instance."""
@@ -101,58 +92,6 @@ class HBNBCommand(cmd.Cmd):
             return False
         print(eval(list_args[0])().id)
         storage.save()
-
-    def do_show(self, arg):
-        """Display an instance of a given id as a string."""
-        list_args = str_parse(arg)
-        objs = storage.all()
-        if len(list_args) == 0:
-            print("** class name missing **")
-            return False
-        if list_args[0] not in HBNBCommand.__classes:
-            print("** class doesn't exist **")
-            return False
-        if len(list_args) == 1:
-            print("** instance id missing **")
-            return False
-        if "{}.{}".format(list_args[0], list_args[1]) not in objs:
-            print("** no instance found **")
-            return False
-        print(objs["{}.{}".format(list_args[0], list_args[1])])
-
-    def do_destroy(self, arg):
-        """Delete the instance of the given id."""
-        list_args = str_parse(arg)
-        objs = storage.all()
-        if len(list_args) == 0:
-            print("** class name missing **")
-            return False
-        if list_args[0] not in HBNBCommand.__classes:
-            print("** class doesn't exist **")
-            return False
-        if len(list_args) == 1:
-            print("** instance id missing **")
-            return False
-        if "{}.{}".format(list_args[0], list_args[1]) not in objs:
-            print("** no instance found **")
-            return False
-        del objs["{}.{}".format(list_args[0], list_args[1])]
-        storage.save()
-
-    def do_all(self, arg):
-        """Display all instances of a given class as a string."""
-        list_args = str_parse(arg)
-        if len(list_args) > 0 and list_args[0] not in HBNBCommand.__classes:
-            print("** class doesn't exist **")
-            return False
-        list_objs = []
-        if len(list_args) == 0:
-            print([obj.__str__() for obj in storage.all().values()])
-        elif len(list_args) > 0:
-            for obj in storage.all().values():
-                if list_args[0] == obj.__class__.__name__:
-                    list_objs.append(obj.__str__())
-            print(list_objs)
 
     def do_update(self, arg):
         """Update the instance of a given id."""
@@ -199,6 +138,24 @@ class HBNBCommand(cmd.Cmd):
                     obj.__dict__[key] = value
         storage.save()
 
+    def do_show(self, arg):
+        """Display an instance of a given id as a string."""
+        list_args = str_parse(arg)
+        objs = storage.all()
+        if len(list_args) == 0:
+            print("** class name missing **")
+            return False
+        if list_args[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+            return False
+        if len(list_args) == 1:
+            print("** instance id missing **")
+            return False
+        if "{}.{}".format(list_args[0], list_args[1]) not in objs:
+            print("** no instance found **")
+            return False
+        print(objs["{}.{}".format(list_args[0], list_args[1])])
+
     def do_count(self, arg):
         """Retrive the number of instances of a given class."""
         list_args = str_parse(arg)
@@ -207,6 +164,49 @@ class HBNBCommand(cmd.Cmd):
             if list_args[0] == obj.__class__.__name__:
                 count += 1
         print(count)
+
+    def do_destroy(self, arg):
+        """Delete the instance of the given id."""
+        list_args = str_parse(arg)
+        objs = storage.all()
+        if len(list_args) == 0:
+            print("** class name missing **")
+            return False
+        if list_args[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+            return False
+        if len(list_args) == 1:
+            print("** instance id missing **")
+            return False
+        if "{}.{}".format(list_args[0], list_args[1]) not in objs:
+            print("** no instance found **")
+            return False
+        del objs["{}.{}".format(list_args[0], list_args[1])]
+        storage.save()
+
+    def do_quit(self, arg):
+        """Quit command."""
+        return True
+
+    def do_EOF(self, arg):
+        """EOF signal."""
+        print("")
+        return True
+
+    def do_all(self, arg):
+        """Display all instances of a given class as a string."""
+        list_args = str_parse(arg)
+        if len(list_args) > 0 and list_args[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+            return False
+        list_objs = []
+        if len(list_args) == 0:
+            print([obj.__str__() for obj in storage.all().values()])
+        elif len(list_args) > 0:
+            for obj in storage.all().values():
+                if list_args[0] == obj.__class__.__name__:
+                    list_objs.append(obj.__str__())
+            print(list_objs)
 
 
 if __name__ == '__main__':
