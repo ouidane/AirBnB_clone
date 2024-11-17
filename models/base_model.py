@@ -45,7 +45,7 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self) -> str:
-        """Return a string."""
+        """Return a string of the BaseModel instance."""
         return "[{}] ({}) {}".format(
             self.__class__.__name__,
             self.id,
@@ -53,7 +53,7 @@ class BaseModel:
         )
 
     def save(self) -> None:
-        """Update 'updated_at'."""
+        """Update updated_at of the BaseModel instance."""
         self.updated_at = datetime.today()
         models.storage.save()
 
