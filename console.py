@@ -60,15 +60,8 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def default(self, arg):
-        """Handle commands that are not recognized.
-
-        Args:
-            arg (str): The unrecognized command.
-
-        Returns:
-            bool: False if the command is not recognized.
-        """
-        default_args = {
+        """Handle commands that are not recognized."""
+        dic_args = {
             "all": self.do_all,
             "count": self.do_count,
             "destroy": self.do_destroy,
@@ -81,9 +74,9 @@ class HBNBCommand(cmd.Cmd):
             match = re.search(r"\((.*?)\)", args[1])
             if match is not None:
                 command = [args[1][:match.span()[0]], match.group()[1:-1]]
-                if command[0] in default_args.keys():
+                if command[0] in dic_args.keys():
                     call = "{} {}".format(args[0], command[1])
-                    return default_args[command[0]](call)
+                    return dic_args[command[0]](call)
         print("** Unknown syntax: {}".format(arg))
         return False
 
