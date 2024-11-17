@@ -145,9 +145,9 @@ class TestAmenity_to_dict(unittest.TestCase):
 
     def test_to_dict_contains_added_attributes(self):
         am = Amenity()
-        am.middle_name = "Holberton"
+        am.middle_name = "School"
         am.my_number = 98
-        self.assertEqual("Holberton", am.middle_name)
+        self.assertEqual("School", am.middle_name)
         self.assertIn("my_number", am.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):
