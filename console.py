@@ -14,11 +14,7 @@ from models.user import User
 
 
 def parsing(arg):
-    """Parse a string argument and return a list of items.
-
-    Args:
-        arg (str): The input string to be parsed..
-    """
+    """Parse a string argument and return a list of items."""
     curly_braces = re.search(r"\{(.*?)\}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
     if curly_braces is None:
@@ -37,12 +33,11 @@ def parsing(arg):
 
 
 class HBNBCommand(cmd.Cmd):
-    """Implementation of the HBnB command-line interface.
+    """HBnB command-line interface.
 
     Attributes:
         prompt (str): The prompt displayed in the command line.
-        __classes (set): A set of known classes including "BaseModel,"
-            "Amenity," "City," "Place," "Review," "State," and "User."
+        __classes (set): A set of model classes.
     """
 
     prompt = "(hbnb) "
