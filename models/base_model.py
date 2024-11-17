@@ -6,7 +6,21 @@ import models
 
 
 class BaseModel:
-    """Represents the BaseModel."""
+    """BaseModel of the HBnB project.
+
+    Attributes:
+        id (str): A unique identifier generated using the uuid4() function.
+        created_at (datetime): The date & time when
+            the instance is created.
+        updated_at (datetime): The date & time when
+            the instance is last updated.
+
+    Methods:
+        __init__: Initializes a new instance of the BaseModel class.
+        __str__: Returns a string representation of the BaseModel instance.
+        save: Updates the 'updated_at' attribute and saves the instance.
+        to_dict: Returns a dictionary representation of the BaseModel instance.
+    """
 
     def __init__(self, *args, **kwargs) -> None:
         """Initialize a new instance.
