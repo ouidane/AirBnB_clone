@@ -56,13 +56,10 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def default(self, arg):
-        """Handle commands that are not recognized.
+        """Handle unrecognized command.
 
         Args:
             arg (str): The unrecognized command.
-
-        Returns:
-            bool: False if the command is not recognized.
         """
         default_args = {
             "all": self.do_all,
@@ -84,20 +81,16 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_quit(self, arg):
-        """Quit command to exit the program."""
+        """Quit command."""
         return True
 
     def do_EOF(self, arg):
-        """EOF signal to exit the program."""
+        """EOF signal to."""
         print("")
         return True
 
     def do_create(self, arg):
-        """
-        Usage: create <class>
-
-        Create a new instance and print its `id`.
-        """
+        """Create a new instance"""
         list_args = parsing(arg)
         if len(list_args) == 0:
             print("** class name missing **")
@@ -109,11 +102,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_show(self, arg):
-        """
-        Usage: show <class> <id> or <class>.show(<id>)
-
-        Display the string representation of an instance of a given id.
-        """
+        """Display an instance of a given id as a string."""
         list_args = parsing(arg)
         objs = storage.all()
         if len(list_args) == 0:
@@ -131,11 +120,7 @@ class HBNBCommand(cmd.Cmd):
         print(objs["{}.{}".format(list_args[0], list_args[1])])
 
     def do_destroy(self, arg):
-        """
-        Usage: destroy <class> <id> or <class>.distroy(<id>)
-
-        Delete the instance of the given id.
-        """
+        """Delete the instance of the given id."""
         list_args = parsing(arg)
         objs = storage.all()
         if len(list_args) == 0:
@@ -154,12 +139,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_all(self, arg):
-        """
-        Usage: all or all <class> or <class>.all()
-
-        Display string representations of all instances of a given class.
-        If no class is specified, displays all instantiated objects.
-        """
+        """Display all instances of a given class as a string"""
         list_args = parsing(arg)
         if len(list_args) > 0 and list_args[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
@@ -174,14 +154,7 @@ class HBNBCommand(cmd.Cmd):
             print(list_objs)
 
     def do_update(self, arg):
-        """
-        Usage: update <class name> <id> <attribute name> "<attribute value>" or
-        <class>.update(<id>, <attribute name>, "<attribute value>") or
-        <class>.update(<id>, <dictionary>).
-
-        Update the instance of a given id by adding or
-        updating a given attribute.
-        """
+        """Update the instance of a given id."""
         list_args = parsing(arg)
         objs = storage.all()
         if len(list_args) == 0:
@@ -226,11 +199,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_count(self, arg):
-        """
-        Usage: count <class> or <class>.count()
-
-        Retrive the number of instances of a given class.
-        """
+        """Retrive the number of instances of a given class."""
         list_args = parsing(arg)
         count = 0
         for obj in storage.all().values():
