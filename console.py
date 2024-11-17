@@ -52,11 +52,11 @@ class HBNBCommand(cmd.Cmd):
         }
 
     def emptyline(self):
-        """Do nothins when receiving an empty line."""
+        """Execute nothings when receiving an empty line."""
         pass
 
     def default(self, arg):
-        """Handle unrecognized command.
+        """Handle unrecognized command line arguments.
 
         Args:
             arg (str): The unrecognized command.
@@ -81,11 +81,11 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_quit(self, arg):
-        """Quit command."""
+        """Quit command to exit the program."""
         return True
 
     def do_EOF(self, arg):
-        """EOF signal to."""
+        """EOF signal to exit the program."""
         print("")
         return True
 
