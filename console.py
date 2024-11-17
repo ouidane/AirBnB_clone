@@ -81,18 +81,17 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_quit(self, arg):
-        """Quit command to exit the console."""
+        """Quit command to exit the program."""
         return True
 
     def do_EOF(self, arg):
-        """EOF command to exit the console."""
+        """EOF signal to exit the program."""
         print("")
         return True
 
     def do_create(self, arg):
         """
         Usage: create <class>
-
         Create a new instance and print its `id`.
         """
         list_args = str_parse(arg)
@@ -108,7 +107,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arg):
         """
         Usage: show <class> <id> or <class>.show(<id>)
-        Display the an instance of a given id as a string.
+        Display the string representation of an instance of a given id.
         """
         list_args = str_parse(arg)
         objs = storage.all()
@@ -151,7 +150,8 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """
         Usage: all or all <class> or <class>.all()
-        Display all instances of a given class as a string.
+        Display string representations of all instances of a given class.
+        If no class is specified, displays all instantiated objects.
         """
         list_args = str_parse(arg)
         if len(list_args) > 0 and list_args[0] not in HBNBCommand.__classes:
