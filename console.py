@@ -13,7 +13,7 @@ from models.state import State
 from models.user import User
 
 
-def handle_cmd(arg):
+def parsing(arg):
     """Parse a string argument and return a list of items.
 
     Args:
@@ -103,7 +103,7 @@ class HBNBCommand(cmd.Cmd):
 
         Create a new instance and print its `id`.
         """
-        list_args = handle_cmd(arg)
+        list_args = parsing(arg)
         if len(list_args) == 0:
             print("** class name missing **")
             return False
@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
 
         Display the string representation of an instance of a given id.
         """
-        list_args = handle_cmd(arg)
+        list_args = parsing(arg)
         objs = storage.all()
         if len(list_args) == 0:
             print("** class name missing **")
@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
 
         Delete the instance of the given id.
         """
-        list_args = handle_cmd(arg)
+        list_args = parsing(arg)
         objs = storage.all()
         if len(list_args) == 0:
             print("** class name missing **")
@@ -165,7 +165,7 @@ class HBNBCommand(cmd.Cmd):
         Display string representations of all instances of a given class.
         If no class is specified, displays all instantiated objects.
         """
-        list_args = handle_cmd(arg)
+        list_args = parsing(arg)
         if len(list_args) > 0 and list_args[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
             return False
@@ -187,7 +187,7 @@ class HBNBCommand(cmd.Cmd):
         Update the instance of a given id by adding or
         updating a given attribute.
         """
-        list_args = handle_cmd(arg)
+        list_args = parsing(arg)
         objs = storage.all()
         if len(list_args) == 0:
             print("** class name missing **")
@@ -236,7 +236,7 @@ class HBNBCommand(cmd.Cmd):
 
         Retrive the number of instances of a given class.
         """
-        list_args = handle_cmd(arg)
+        list_args = parsing(arg)
         count = 0
         for obj in storage.all().values():
             if list_args[0] == obj.__class__.__name__:
