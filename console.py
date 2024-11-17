@@ -51,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
         "User"
         }
 
-    def emptyline(self):
+    def emptyline(self, arg):
         """Execute nothings when receiving an empty line."""
         pass
 
@@ -81,11 +81,11 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_quit(self, arg):
-        """Quit command to exit the program."""
+        """Method to exit the HBNB console."""
         return True
 
     def do_EOF(self, arg):
-        """EOF signal to exit the program."""
+        """Handles EOF to exit program."""
         print("")
         return True
 
