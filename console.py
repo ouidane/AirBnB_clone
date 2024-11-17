@@ -41,12 +41,12 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     __classes = {
         "BaseModel",
-        "Amenity",
+        "User"
         "City",
+        "State",
         "Place",
         "Review",
-        "State",
-        "User"
+        "Amenity",
         }
 
     def default(self, arg):
@@ -80,6 +80,33 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Continue and do nothings."""
         pass
+
+    def do_count(self, arg):
+        """Retrive the number of instances of a given class."""
+        list_args = str_parse(arg)
+        count = 0
+        for obj in storage.all().values():
+            if list_args[0] == obj.__class__.__name__:
+                count += 1
+        print(count)
+
+    def do_show(self, arg):
+        """Display an instance of a given id as a string."""
+        list_args = str_parse(arg)
+        objs = storage.all()
+        if len(list_args) == 0:
+            print("** class name missing **")
+            return False
+        if list_args[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+            return False
+        if len(list_args) == 1:
+            print("** instance id missing **")
+            return False
+        if "{}.{}".format(list_args[0], list_args[1]) not in objs:
+            print("** no instance found **")
+            return False
+        print(objs["{}.{}".format(list_args[0], list_args[1])])
 
     def do_create(self, arg):
         """Create a new instance."""
@@ -137,33 +164,6 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     obj.__dict__[key] = value
         storage.save()
-
-    def do_show(self, arg):
-        """Display an instance of a given id as a string."""
-        list_args = str_parse(arg)
-        objs = storage.all()
-        if len(list_args) == 0:
-            print("** class name missing **")
-            return False
-        if list_args[0] not in HBNBCommand.__classes:
-            print("** class doesn't exist **")
-            return False
-        if len(list_args) == 1:
-            print("** instance id missing **")
-            return False
-        if "{}.{}".format(list_args[0], list_args[1]) not in objs:
-            print("** no instance found **")
-            return False
-        print(objs["{}.{}".format(list_args[0], list_args[1])])
-
-    def do_count(self, arg):
-        """Retrive the number of instances of a given class."""
-        list_args = str_parse(arg)
-        count = 0
-        for obj in storage.all().values():
-            if list_args[0] == obj.__class__.__name__:
-                count += 1
-        print(count)
 
     def do_destroy(self, arg):
         """Delete the instance of the given id."""
