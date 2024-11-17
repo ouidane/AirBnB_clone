@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines unittests for models/city.py."""
+"""Unittests for models/city.py."""
 import os
 import models
 import unittest
@@ -9,7 +9,7 @@ from models.city import City
 
 
 class TestCity_instantiation(unittest.TestCase):
-    """Unittests for testing instantiation of the City class."""
+    """Unittests for testing."""
 
     def test_no_args_instantiates(self):
         self.assertEqual(City, type(City()))
@@ -85,7 +85,7 @@ class TestCity_instantiation(unittest.TestCase):
 
 
 class TestCity_save(unittest.TestCase):
-    """Unittests for testing save method of the City class."""
+    """Unittests for testing save method."""
 
     @classmethod
     def setUp(self):
@@ -136,7 +136,7 @@ class TestCity_save(unittest.TestCase):
 
 
 class TestCity_to_dict(unittest.TestCase):
-    """Unittests for testing to_dict method of the City class."""
+    """Unittests for testing to_dict method."""
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(City().to_dict()))
@@ -150,9 +150,9 @@ class TestCity_to_dict(unittest.TestCase):
 
     def test_to_dict_contains_added_attributes(self):
         cy = City()
-        cy.middle_name = "Holberton"
+        cy.middle_name = "School"
         cy.my_number = 98
-        self.assertEqual("Holberton", cy.middle_name)
+        self.assertEqual("School", cy.middle_name)
         self.assertIn("my_number", cy.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):
