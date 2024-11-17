@@ -41,8 +41,7 @@ class HBNBCommand(cmd.Cmd):
 
     Attributes:
         prompt (str): The prompt displayed in the command line.
-        __classes (set): A set of known classes including "BaseModel,"
-            "Amenity," "City," "Place," "Review," "State," and "User."
+        __classes (set): A set of class names.
     """
 
     prompt = "(hbnb) "
@@ -57,17 +56,17 @@ class HBNBCommand(cmd.Cmd):
         }
 
     def emptyline(self):
-        """Do nothins when receiving an empty line."""
+        """Do nothing when receiving an empty line."""
         pass
 
     def default(self, arg):
-        """Handle commands that are not recognized.
+        """Handle unrecognized commands.
 
         Args:
             arg (str): The unrecognized command.
 
         Returns:
-            bool: False if the command is not recognized.
+            bool: true if the command is recognized.
         """
         default_args = {
             "all": self.do_all,
@@ -89,11 +88,11 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_quit(self, arg):
-        """Quit command to exit the program."""
+        """Quit to exit the program."""
         return True
 
     def do_EOF(self, arg):
-        """EOF signal to exit the program."""
+        """EOF to exit the program."""
         print("")
         return True
 
