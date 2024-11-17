@@ -6,7 +6,7 @@ import models
 
 
 class BaseModel:
-    """BaseModel of the HBnB project.
+    """Represents the BaseModel of the HBnB project.
 
     Attributes:
         id (str): A unique identifier generated using the uuid4() function.
@@ -23,7 +23,7 @@ class BaseModel:
     """
 
     def __init__(self, *args, **kwargs) -> None:
-        """Initialize a new instance.
+        """Initialize a new instance of the BaseModel class.
 
         Args:
             *args: Not Used.
@@ -45,7 +45,7 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self) -> str:
-        """Return a string of the BaseModel instance."""
+        """Return a string representation of the BaseModel instance."""
         return "[{}] ({}) {}".format(
             self.__class__.__name__,
             self.id,
@@ -53,12 +53,12 @@ class BaseModel:
         )
 
     def save(self) -> None:
-        """Update updated_at of the BaseModel instance."""
+        """Update the 'updated_at' attribute and save the instance."""
         self.updated_at = datetime.today()
         models.storage.save()
 
     def to_dict(self) -> dict:
-        """Return a dictionary of the BaseModel."""
+        """Return a dictionary representation of the BaseModel instance."""
         rtn_dict = self.__dict__.copy()
         rtn_dict["created_at"] = self.created_at.isoformat()
         rtn_dict["updated_at"] = self.updated_at.isoformat()
