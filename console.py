@@ -108,8 +108,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arg):
         """
         Usage: show <class> <id> or <class>.show(<id>)
-
-        Display the string representation of an instance of a given id.
+        Display the an instance of a given id as a string.
         """
         list_args = str_parse(arg)
         objs = storage.all()
@@ -130,7 +129,6 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arg):
         """
         Usage: destroy <class> <id> or <class>.distroy(<id>)
-
         Delete the instance of the given id.
         """
         list_args = str_parse(arg)
@@ -153,9 +151,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """
         Usage: all or all <class> or <class>.all()
-
-        Display string representations of all instances of a given class.
-        If no class is specified, displays all instantiated objects.
+        Display all instances of a given class as a string.
         """
         list_args = str_parse(arg)
         if len(list_args) > 0 and list_args[0] not in HBNBCommand.__classes:
@@ -175,9 +171,7 @@ class HBNBCommand(cmd.Cmd):
         Usage: update <class name> <id> <attribute name> "<attribute value>" or
         <class>.update(<id>, <attribute name>, "<attribute value>") or
         <class>.update(<id>, <dictionary>).
-
-        Update the instance of a given id by adding or
-        updating a given attribute.
+        Update the instance of a given id.
         """
         list_args = str_parse(arg)
         objs = storage.all()
@@ -225,7 +219,6 @@ class HBNBCommand(cmd.Cmd):
     def do_count(self, arg):
         """
         Usage: count <class> or <class>.count()
-
         Retrive the number of instances of a given class.
         """
         list_args = str_parse(arg)
