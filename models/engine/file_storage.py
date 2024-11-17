@@ -11,19 +11,7 @@ from models.user import User
 
 
 class FileStorage:
-    """Manage the storage of objects in a JSON file.
-
-    Attributes:
-        __file_path (str): The path to the JSON file used for storage.
-        __objects (dict): A dictionary containing
-            objects stored with their keys.
-
-    Methods:
-        all: Return the dictionary of stored objects (__objects).
-        new: Set an object in __objects with the key `<obj class name>.id`.
-        save: Serialize __objects to the JSON file.
-        reload: Deserialize the JSON file to __objects, if it exists.
-    """
+    """Serializes and deserializes instances to a JSON file."""
 
     __file_path = "file.json"
     __objects = {}
@@ -33,7 +21,7 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj) -> None:
-        """Set in __objects the obj with key `<obj class name>.id`."""
+        """Set in __objects the obj with id key."""
         FileStorage.__objects["{}.{}".format(
             obj.__class__.__name__,
             obj.id
@@ -47,7 +35,7 @@ class FileStorage:
             json.dump(new_obj, fd)
 
     def reload(self) -> None:
-        """Deserialize the JSON file to __objects, if exists."""
+        """Deserialize the JSON file to __objects."""
         try:
             with open(FileStorage.__file_path) as fd:
                 dict_obj = json.load(fd)
