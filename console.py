@@ -14,7 +14,7 @@ from models.user import User
 
 
 def str_parse(arg):
-    """Parses the input string.
+    """Parse the input string into a list.
 
     Args:
         arg (str): The input string to be parsed.
@@ -41,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
 
     Attributes:
         prompt (str): The prompt displayed in the command line.
-        __classes (set): A set of class names.
+        __classes (set): A set of known classes.
     """
 
     prompt = "(hbnb) "
@@ -56,17 +56,17 @@ class HBNBCommand(cmd.Cmd):
         }
 
     def emptyline(self):
-        """Do nothing when receiving an empty line."""
+        """Do nothins when receiving an empty line."""
         pass
 
     def default(self, arg):
-        """Handle unrecognized commands.
+        """Handle commands that are not recognized.
 
         Args:
             arg (str): The unrecognized command.
 
         Returns:
-            bool: true if the command is recognized.
+            bool: False if the command is not recognized.
         """
         default_args = {
             "all": self.do_all,
@@ -88,11 +88,11 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_quit(self, arg):
-        """Quit to exit the program."""
+        """Quit command to exit the program."""
         return True
 
     def do_EOF(self, arg):
-        """EOF to exit the program."""
+        """EOF signal to exit the program."""
         print("")
         return True
 
