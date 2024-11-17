@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unittests for models/place.py."""
+"""Defines unittests for models/place.py."""
 import os
 import models
 import unittest
@@ -9,7 +9,7 @@ from models.place import Place
 
 
 class TestPlace_instantiation(unittest.TestCase):
-    """Unittests for testing."""
+    """Unittests for testing instantiation of the Place class."""
 
     def test_no_args_instantiates(self):
         self.assertEqual(Place, type(Place()))
@@ -204,9 +204,9 @@ class TestPlace_to_dict(unittest.TestCase):
 
     def test_to_dict_contains_added_attributes(self):
         pl = Place()
-        pl.middle_name = "School"
+        pl.middle_name = "Holberton"
         pl.my_number = 98
-        self.assertEqual("School", pl.middle_name)
+        self.assertEqual("Holberton", pl.middle_name)
         self.assertIn("my_number", pl.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):

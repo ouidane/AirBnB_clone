@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unittests for models/amenity.py."""
+"""Defines unittests for models/amenity.py."""
 import os
 import models
 import unittest
@@ -9,7 +9,7 @@ from models.amenity import Amenity
 
 
 class TestAmenity_instantiation(unittest.TestCase):
-    """Unittests for testing."""
+    """Unittests for testing instantiation of the Amenity class."""
 
     def test_no_args_instantiates(self):
         self.assertEqual(Amenity, type(Amenity()))
@@ -80,7 +80,7 @@ class TestAmenity_instantiation(unittest.TestCase):
 
 
 class TestAmenity_save(unittest.TestCase):
-    """Unittests for testing save method."""
+    """Unittests for testing save method of the Amenity class."""
 
     @classmethod
     def setUp(self):
@@ -131,7 +131,7 @@ class TestAmenity_save(unittest.TestCase):
 
 
 class TestAmenity_to_dict(unittest.TestCase):
-    """Unittests for testing to_dict method."""
+    """Unittests for testing to_dict method of the Amenity class."""
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(Amenity().to_dict()))
@@ -145,9 +145,9 @@ class TestAmenity_to_dict(unittest.TestCase):
 
     def test_to_dict_contains_added_attributes(self):
         am = Amenity()
-        am.middle_name = "School"
+        am.middle_name = "Holberton"
         am.my_number = 98
-        self.assertEqual("School", am.middle_name)
+        self.assertEqual("Holberton", am.middle_name)
         self.assertIn("my_number", am.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):

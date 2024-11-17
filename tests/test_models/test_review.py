@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unittests for models/review.py."""
+"""Defines unittests for models/review.py."""
 import os
 import models
 import unittest
@@ -9,7 +9,7 @@ from models.review import Review
 
 
 class TestReview_instantiation(unittest.TestCase):
-    """Unittests for testing instantiation."""
+    """Unittests for testing instantiation of the Review class."""
 
     def test_no_args_instantiates(self):
         self.assertEqual(Review, type(Review()))
@@ -91,7 +91,7 @@ class TestReview_instantiation(unittest.TestCase):
 
 
 class TestReview_save(unittest.TestCase):
-    """Unittests for testing save method."""
+    """Unittests for testing save method of the Review class."""
 
     @classmethod
     def setUp(self):
@@ -142,7 +142,7 @@ class TestReview_save(unittest.TestCase):
 
 
 class TestReview_to_dict(unittest.TestCase):
-    """Unittests for testing to_dict method."""
+    """Unittests for testing to_dict method of the Review class."""
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(Review().to_dict()))
@@ -156,9 +156,9 @@ class TestReview_to_dict(unittest.TestCase):
 
     def test_to_dict_contains_added_attributes(self):
         rv = Review()
-        rv.middle_name = "School"
+        rv.middle_name = "Holberton"
         rv.my_number = 98
-        self.assertEqual("School", rv.middle_name)
+        self.assertEqual("Holberton", rv.middle_name)
         self.assertIn("my_number", rv.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):
