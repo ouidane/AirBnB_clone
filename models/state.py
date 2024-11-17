@@ -4,10 +4,10 @@ from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """Represents a geographical state.
+    """A class that Represents a state.
 
     Attributes:
-        name (str): The name of the geographical state.
+        name (str): The name of the state.
     """
 
     name = ""
