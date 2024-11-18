@@ -14,7 +14,7 @@ from models.user import User
 
 
 def str_parse(arg):
-    """Parse the input string into a list.
+    """Parses the input string into a list.
 
     Args:
         arg (str): The input string to be parsed.
