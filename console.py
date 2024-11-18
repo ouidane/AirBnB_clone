@@ -219,7 +219,7 @@ class HBNBCommand(cmd.Cmd):
     def do_count(self, arg):
         """
         Usage: count <class> or <class>.count()
-        Retrive the number of instances of a given class.
+        Retrives the number of instances of a given class.
         """
         list_args = str_parse(arg)
         count = 0
