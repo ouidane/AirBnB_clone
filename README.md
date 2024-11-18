@@ -20,3 +20,8 @@ show - Displays the details of an object based on its class and UUID.
 all - Lists all objects the program has access to, or all objects of a specified class.
 update - Modifies existing attributes of an object based on its class name and UUID.
 quit - Exits the program (the EOF command also functions as an exit).
+
+
+## Authors :black_nib:
+* **Zakaria Ouidane** <[Zakaria Ouidane](https://github.com/ouidane)>
+* **Aymen Hommani** <[Aymen Hommani](https://github.com/Crosspii)>
