@@ -22,6 +22,21 @@ update - Modifies existing attributes of an object based on its class name and U
 quit - Exits the program (the EOF command also functions as an exit).
 
 
+## Testing :straight_ruler:
+
+Unittests for this project are defined in the [tests](./tests) 
+folder. To run the entire test suite simultaneously, execute the following command:
+
+```
+$ python3 unittest -m discover tests
+```
+
+Alternatively, you can specify a single test file to run at a time:
+
+```
+$ python3 unittest -m tests/test_console.py
+```
+
 ## Authors :black_nib:
 * **Zakaria Ouidane** <[ZakariaOuidane](https://github.com/ouidane)>
 * **Aymen Hommani** <[AymenHommani](https://github.com/Crosspii)>
