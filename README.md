@@ -23,5 +23,5 @@ quit - Exits the program (the EOF command also functions as an exit).
 
 
 ## Authors :black_nib:
-* **Zakaria Ouidane** <[Zakaria Ouidane](https://github.com/ouidane)>
-* **Aymen Hommani** <[Aymen Hommani](https://github.com/Crosspii)>
+* **Zakaria Ouidane** <[ZakariaOuidane](https://github.com/ouidane)>
+* **Aymen Hommani** <[AymenHommani](https://github.com/Crosspii)>
