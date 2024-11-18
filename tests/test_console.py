@@ -80,7 +80,7 @@ class TestHBNBCommand_help(unittest.TestCase):
     def test_help_count(self):
         h = (
             "\n        Usage: count <class> or <class>.count()\n\n"
-            "        Retrive the number of instances"
+            "        Retrives the number of instances"
             " of a given class.\n        \n"
         )
         with patch("sys.stdout", new=StringIO()) as output:
