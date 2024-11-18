@@ -28,7 +28,7 @@ class FileStorage:
         )] = obj
 
     def save(self) -> None:
-        """Serialize __objects to the JSON file."""
+        """Serializes __objects to the JSON file."""
         old_obj = FileStorage.__objects
         new_obj = {obj: old_obj[obj].to_dict() for obj in old_obj.keys()}
         with open(FileStorage.__file_path, "w") as fd:
