@@ -14,7 +14,7 @@ from models.user import User
 
 
 def str_parse(arg):
-    """Parses the input string into a list.
+    """Parse the input string into a list.
 
     Args:
         arg (str): The input string to be parsed.
@@ -150,7 +150,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """
         Usage: all or all <class> or <class>.all()
-        Displays the string representations of all instances of a given class.
+        Display string representations of all instances of a given class.
         If no class is specified, displays all instantiated objects.
         """
         list_args = str_parse(arg)
@@ -218,8 +218,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, arg):
         """
-        Usage: counts <class> or <class>.count()
-        Retrives the number of instances of a given class.
+        Usage: count <class> or <class>.count()
+        Retrive the number of instances of a given class.
         """
         list_args = str_parse(arg)
         count = 0
