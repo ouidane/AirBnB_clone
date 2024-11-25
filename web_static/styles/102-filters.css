@@ -1,0 +1,135 @@
+.filters {
+  background-color: white;
+  height: 70px;
+  width: 100%;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.filters .locations,
+.filters .amenities {
+  height: 100%;
+  width: 25%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid #dddddd;
+  position: relative;
+}
+
+.filters .amenities {
+  border-right: none;
+}
+
+.filters h3 {
+  font-weight: 600;
+  margin: 0;
+}
+
+.filters h4 {
+  font-weight: 400;
+  font-size: 14px;
+  margin: 5px 0 0 0;
+}
+
+.filters button {
+  font-size: 18px;
+  background-color: #ff5a5f;
+  color: #ffffff;
+  height: 48px;
+  width: 20%;
+  border: none;
+  border-radius: 4px;
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.filters button:hover {
+  opacity: 0.9;
+}
+
+.popover {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fafafa;
+  width: 100%;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.popover li {
+  list-style: none;
+  padding: 5px 0;
+}
+
+.popover h2 {
+  font-size: 16px;
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+
+.locations:hover .popover,
+.amenities:hover .popover {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .filters {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .filters .locations,
+  .filters .amenities {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 0;
+  }
+
+  .filters .amenities {
+    border-bottom: none;
+  }
+
+  .filters button {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .popover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  .popover h2 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  .popover li {
+    padding: 10px 0;
+    border-bottom: 1px solid #dddddd;
+  }
+}
